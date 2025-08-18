@@ -147,7 +147,8 @@ class KText(tk.Frame):
             self.scroll.grid(row=0, column=1, sticky='ns')
         self.SCROLL = not self.SCROLL
 
-
+    def set_bg(self, color:str):
+        self.tex.config(bg=color)
 
 
 if __name__ == '__main__':

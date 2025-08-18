@@ -1,0 +1,11 @@
+"path tags lnx": "/run/media/tomy/DD1/TAG/RECURSOS/personajes2/modelos"
+"path tags win": ""
+"format images":
+  - .jpg
+  - .png
+  - .gif
+
+"sep tags": ", "
+template: "[$time$ $bitrateu$$tags$]-$height$p"
+width: 720
+height: 340

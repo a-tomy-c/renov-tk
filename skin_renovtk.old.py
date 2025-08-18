@@ -18,6 +18,8 @@ class TreePath(ttk.Treeview):
         self.configure(show='tree')
         self.folder_icon = tk.PhotoImage(file="folder.png")
         self.item_icon = tk.PhotoImage(file="item.png")
+
+        self.path = None
         # sv_ttk.set_theme("dark")
         # sv_ttk.set_theme("light")
         # s = ttk.Style()
@@ -47,6 +49,8 @@ class TreePath(ttk.Treeview):
         path = Path(path_str)
         parent_folder_name = path.parent.name
         file_name = path.name
+
+        self.path = path_str
 
         # Insertar o encontrar el item padre (el folder)
         parent_item_id = None
@@ -183,7 +187,7 @@ class SkinRenovTk(tk.Frame):
         self.tab1.rowconfigure(0, weight=0, minsize=70)
         self.tab1.columnconfigure(0, weight=1)
         # TAB 1
-        self.tree.load_path('/home/tomy/Descargas/soft_para_tags_v1/renombrar_mi_tk_v0.3/ren3.py')
+        # self.tree.load_path('/home/tomy/Descargas/soft_para_tags_v1/renombrar_mi_tk_v0.3/ren3.py')
         # self.tex_log = tk.Text(self.tab1, wrap='word')
         self.tex_log = KText(self.tab1)
         self.tex_log.tex.config(bg="#17181B")
@@ -226,7 +230,19 @@ class SkinRenovTk(tk.Frame):
         #     highlightthickness=0,
         #     font=('Consolas', 10, 'normal')
         # )
-        
+
+        self.fm_bot = tk.Frame(self)
+        self.fm_bot.grid(row=2, column=0, sticky='wens', pady=4)
+        self.fm_bot.columnconfigure(1, weight=1)
+        self.fm_bot.rowconfigure(0, weight=1)
+        self.bt_rename = ttk.Button(self.fm_bot, text='RENAME', takefocus=False)
+        self.bt_rename.grid(row=0, column=0, sticky='wens', padx=1, pady=0)
+        self.fm_bot.configure(bg=bg)
+        self.var_new_name = tk.StringVar()
+        self.en_new_name = ttk.Entry(self.fm_bot, textvariable=self.var_new_name, takefocus=False)
+        self.en_new_name.grid(row=0, column=1, sticky='wens', padx=1, pady=0)
+        self.bt_preview = ttk.Button(self.fm_bot, text='PREVIEW', width=8)
+        self.bt_preview.grid(row=0, column=2, sticky='wens', padx=1, pady=0)
 
     def toggle_tabs(self):
         # Obtener el índice de la pestaña actual
@@ -367,13 +383,15 @@ class SkinRenovTk(tk.Frame):
         style.layout("TNotebook.Tab", [])
         style.configure("TNotebook", borderwidth=0) # Evitar borde doble
 
-        self.items = ["uno", "dos", "tres", "cuatro"]
-        self.var_current_tag.set(self.items[0])
-        self.cmb_tags['values'] = self.items
+        # self.items = ["uno", "dos", "tres", "cuatro"]
+        # self.var_current_tag.set(self.items[0])
+        # self.cmb_tags['values'] = self.items
 
         self.fm_top.config(pady=2, bg="#313131")
         self.fm0.config(pady=2, bg="#313131")
         self.config(padx=6, bg='#141414')
+
+        self.tex_log.setScroll(s)
 
 
 if __name__ == "__main__":
