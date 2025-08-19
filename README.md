@@ -13,7 +13,8 @@ para leer el archivo de configuraciones
 pip install pyyaml
 ```
 
-***pymediainfo*
+**pymediainfo**
+
 ```bash
 pip install pymediainfo
 ```
