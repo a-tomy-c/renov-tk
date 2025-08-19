@@ -67,10 +67,10 @@ class SkinRenoTk(tk.Frame):
         self.wg_tabs.grid(row=1, column=0, sticky='wens')
         self.wg_tabs.columnconfigure(0, weight=1)
         self.wg_tabs.rowconfigure(0, weight=1)
-        self.tab1 = tk.Frame(self.wg_tabs, bg='blue')
-        # self.tab2 = tk.Frame(self.wg_tabs)
+        self.tab1 = tk.Frame(self.wg_tabs)
+        self.tab2 = tk.Frame(self.wg_tabs)
         self.wg_tabs.add(self.tab1, text='Tab 1', sticky='wens')
-        # self.wg_tabs.add(self.tab2, text='Tab 2')
+        self.wg_tabs.add(self.tab2, text='Tab 2')
         s_tab = ttk.Style()
         s_tab.layout('TNotebook.Tab', [])
         s_tab.configure('TNotebook', borderwidth=0)
@@ -112,6 +112,16 @@ class SkinRenoTk(tk.Frame):
         self.tex_log.set_bg(color='gray18')
         self.tex_log.setScroll(s)
 
+        self.tex_info = KText(self.tab2)
+        self.tex_info.grid(row=0, column=0, sticky='wens')
+        self.tab2.columnconfigure(0, weight=1)
+        self.tab2.rowconfigure(0, weight=1)
+
+    def toggle_tabs(self):
+        current_tab_index = self.wg_tabs.index(self.wg_tabs.select())
+        index = 1 if current_tab_index == 0 else 0
+        self.wg_tabs.select(index)
+
 
 if __name__ == '__main__':
     rz = tk.Tk()
@@ -121,5 +131,4 @@ if __name__ == '__main__':
     app.grid(row=0, column=0, sticky='wens')
     app.columnconfigure(0, weight=1)
     app.rowconfigure(0, weight=1)
-
     rz.mainloop()

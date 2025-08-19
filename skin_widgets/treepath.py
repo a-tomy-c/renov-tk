@@ -56,3 +56,11 @@ class TreePath(ttk.Treeview):
     def get_path(self) -> str:
         return self.PATH
     
+    def load_path(self,paths:str):
+        self.clear_items()
+        if isinstance(paths, str):
+            paths = [paths]
+        
+        for _path_str in paths:
+            self._process_path(_path_str)
+        

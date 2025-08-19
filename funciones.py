@@ -73,8 +73,7 @@ class Info:
 if __name__=="__main__":
     from pprint import pprint
     import platform
-    # r1 = '/run/media/tomy/DD1/TAG/RECURSOS/personajes2/dragon ball'
-    # r1 = '/run/media/tomy/DD1/TAG/RECURSOS/personajes2/dragon ball/'
+    # r1 = '/run/media/tomy/DD1/TAG/RECURSOS/
     # obten = MiCarpeta(r1)
     # # print(obten._content())
     # print([e for e in obten.imagenes()])
@@ -95,8 +94,3 @@ if __name__=="__main__":
     # res = info.get_data()
     # print(res)
 
-
-    # test mi_carpeta
-    path = "/run/media/tomy/DD1/TAG/RECURSOS/personajes2/modelos"
-    mic = MiCarpeta(path=path)
-        

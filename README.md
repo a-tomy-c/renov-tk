@@ -1,5 +1,8 @@
 # renov-tk
 
+utilidad para renombrar video basico, agregando info del video al nombre
+
+![](cap_renovtk.jpg)
 
 ## librerias
 **yaml**
@@ -15,5 +18,3 @@ pip install pyyaml
 pip install pymediainfo
 ```
 
-
- 
