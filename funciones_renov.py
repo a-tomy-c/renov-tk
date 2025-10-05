@@ -38,7 +38,7 @@ class FuncionesRenov:
     
     def get_tags_txt(self) -> list[str]:
         path = "tags.txt"
-        tags = None
+        tags = []
         if Path(path).is_file():
             with open(path, 'r') as file:
                 lines = file.readlines()
